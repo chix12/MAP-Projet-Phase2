@@ -29,22 +29,13 @@ public class Project implements Serializable {
 	@Column(name="Name")
 	private String name;
 
+	//bi-directional many-to-one association to ClientRequestForm
+	@OneToMany(mappedBy="project")
+	private List<ClientRequestForm> clientRequestForms;
+
 	//bi-directional many-to-one association to OrganizationalChart
 	@OneToMany(mappedBy="project")
 	private List<OrganizationalChart> organizationalCharts;
-
-	//bi-directional many-to-many association to AspNetUser
-	@ManyToMany
-	@JoinTable(
-		name="ProjectRessources"
-		, joinColumns={
-			@JoinColumn(name="Project_IdProject")
-			}
-		, inverseJoinColumns={
-			@JoinColumn(name="Ressource_Id")
-			}
-		)
-	private List<AspNetUser> aspNetUsers;
 
 	//bi-directional many-to-one association to AspNetUser
 	@ManyToOne
@@ -55,6 +46,19 @@ public class Project implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="IdMandat")
 	private Mandat mandat;
+
+	//bi-directional many-to-many association to AspNetUser
+	@ManyToMany
+	@JoinTable(
+		name="RessourceProjects"
+		, joinColumns={
+			@JoinColumn(name="Project_IdProject")
+			}
+		, inverseJoinColumns={
+			@JoinColumn(name="Ressource_Id")
+			}
+		)
+	private List<AspNetUser> aspNetUsers;
 
 	public Project() {
 	}
@@ -91,6 +95,28 @@ public class Project implements Serializable {
 		this.name = name;
 	}
 
+	public List<ClientRequestForm> getClientRequestForms() {
+		return this.clientRequestForms;
+	}
+
+	public void setClientRequestForms(List<ClientRequestForm> clientRequestForms) {
+		this.clientRequestForms = clientRequestForms;
+	}
+
+	public ClientRequestForm addClientRequestForm(ClientRequestForm clientRequestForm) {
+		getClientRequestForms().add(clientRequestForm);
+		clientRequestForm.setProject(this);
+
+		return clientRequestForm;
+	}
+
+	public ClientRequestForm removeClientRequestForm(ClientRequestForm clientRequestForm) {
+		getClientRequestForms().remove(clientRequestForm);
+		clientRequestForm.setProject(null);
+
+		return clientRequestForm;
+	}
+
 	public List<OrganizationalChart> getOrganizationalCharts() {
 		return this.organizationalCharts;
 	}
@@ -113,14 +139,6 @@ public class Project implements Serializable {
 		return organizationalChart;
 	}
 
-	public List<AspNetUser> getAspNetUsers() {
-		return this.aspNetUsers;
-	}
-
-	public void setAspNetUsers(List<AspNetUser> aspNetUsers) {
-		this.aspNetUsers = aspNetUsers;
-	}
-
 	public AspNetUser getAspNetUser() {
 		return this.aspNetUser;
 	}
@@ -135,6 +153,14 @@ public class Project implements Serializable {
 
 	public void setMandat(Mandat mandat) {
 		this.mandat = mandat;
+	}
+
+	public List<AspNetUser> getAspNetUsers() {
+		return this.aspNetUsers;
+	}
+
+	public void setAspNetUsers(List<AspNetUser> aspNetUsers) {
+		this.aspNetUsers = aspNetUsers;
 	}
 
 }

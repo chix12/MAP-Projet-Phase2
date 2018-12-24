@@ -102,7 +102,7 @@ public class AspNetUser implements Serializable {
 
 	//bi-directional many-to-one association to Profile
 	@ManyToOne
-	@JoinColumn(name="IdProfile")
+	@JoinColumn(name="Profile_IdProfile")
 	private Profile profile;
 
 	//bi-directional many-to-one association to Competence

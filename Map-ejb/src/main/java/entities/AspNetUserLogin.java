@@ -15,33 +15,33 @@ public class AspNetUserLogin implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@EmbeddedId
-	private AspNetUserLoginPK loginId;
+	private AspNetUserLoginPK idPK;
 
 	@Column(name="Id")
-	private int userId;
+	private int id;
 
 	//bi-directional many-to-one association to AspNetUser
 	@ManyToOne
-	@JoinColumn(name="UserId")
+	@JoinColumn(name="UserId" , insertable=false, updatable=false)
 	private AspNetUser aspNetUser;
 
 	public AspNetUserLogin() {
 	}
 
-	public AspNetUserLoginPK getLoginId() {
-		return this.loginId;
+	public AspNetUserLoginPK getIdPK() {
+		return this.idPK;
 	}
 
-	public void setLoginId(AspNetUserLoginPK loginId) {
-		this.loginId = loginId;
+	public void setIdPK(AspNetUserLoginPK id) {
+		this.idPK = id;
 	}
 
-	public int getUserId() {
-		return this.userId;
+	public int getId() {
+		return this.id;
 	}
 
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public AspNetUser getAspNetUser() {

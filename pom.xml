@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>tn.esprit</groupId>
-	<artifactId>Map</artifactId>
+	<groupId>esprit.tn</groupId>
+	<artifactId>MapRev</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<properties>
@@ -32,15 +32,15 @@
 		<dependencies>
 
 			<dependency>
-				<groupId>tn.esprit</groupId>
-				<artifactId>Map-ejb</artifactId>
+				<groupId>esprit.tn</groupId>
+				<artifactId>MapRev-ejb</artifactId>
 				<version>0.0.1-SNAPSHOT</version>
 				<type>ejb</type>
 			</dependency>
 
 			<dependency>
-				<groupId>tn.esprit</groupId>
-				<artifactId>Map-web</artifactId>
+				<groupId>esprit.tn</groupId>
+				<artifactId>MapRev-web</artifactId>
 				<version>0.0.1-SNAPSHOT</version>
 				<type>war</type>
 			</dependency>
@@ -89,8 +89,8 @@
 	</build>
 
   <modules>
-    <module>Map-ejb</module>
-    <module>Map-web</module>
-    <module>Map-ear</module>
+    <module>MapRev-ejb</module>
+    <module>MapRev-web</module>
+    <module>MapRev-ear</module>
   </modules>
 </project>

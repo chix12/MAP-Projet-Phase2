@@ -1,3 +1,4 @@
+
 package entities;
 
 import java.io.Serializable;
@@ -33,12 +34,12 @@ public class Message implements Serializable {
 
 	//bi-directional many-to-one association to AspNetUser
 	@ManyToOne
-	@JoinColumn(name="IdClient")
+	@JoinColumn(name="IdClient", insertable=false,updatable=false)
 	private AspNetUser aspNetUser1;
 
 	//bi-directional many-to-one association to AspNetUser
 	@ManyToOne
-	@JoinColumn(name="IdRessource")
+	@JoinColumn(name="IdRessource", insertable=false,updatable=false)
 	private AspNetUser aspNetUser2;
 
 	public Message() {

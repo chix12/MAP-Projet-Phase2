@@ -3,7 +3,6 @@ package entities;
 import java.io.Serializable;
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.List;
 
 
 /**
@@ -26,10 +25,6 @@ public class JobRequest implements Serializable {
 
 	@Column(name="Status")
 	private String status;
-
-	//bi-directional many-to-one association to AspNetUser
-	@OneToMany(mappedBy="jobRequest")
-	private List<AspNetUser> aspNetUsers;
 
 	public JobRequest() {
 	}
@@ -56,28 +51,6 @@ public class JobRequest implements Serializable {
 
 	public void setStatus(String status) {
 		this.status = status;
-	}
-
-	public List<AspNetUser> getAspNetUsers() {
-		return this.aspNetUsers;
-	}
-
-	public void setAspNetUsers(List<AspNetUser> aspNetUsers) {
-		this.aspNetUsers = aspNetUsers;
-	}
-
-	public AspNetUser addAspNetUser(AspNetUser aspNetUser) {
-		getAspNetUsers().add(aspNetUser);
-		aspNetUser.setJobRequest(this);
-
-		return aspNetUser;
-	}
-
-	public AspNetUser removeAspNetUser(AspNetUser aspNetUser) {
-		getAspNetUsers().remove(aspNetUser);
-		aspNetUser.setJobRequest(null);
-
-		return aspNetUser;
 	}
 
 }
