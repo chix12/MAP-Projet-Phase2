@@ -26,7 +26,7 @@ public class RessourceConsom implements RessourceConsomRemote, RessourceConsomLo
     {
     	Client client = ClientBuilder.newClient();
     	
-    	WebTarget web = client.target("http://http://localhost:21991/API/Affichage"); 
+    	WebTarget web = client.target("http://localhost:21991/API/Affichage"); 
     	
     	Response response = web.request().get();
     	
