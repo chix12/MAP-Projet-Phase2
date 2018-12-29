@@ -3,6 +3,7 @@ package entities;
 import java.io.Serializable;
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.Date;
 
 
 /**
@@ -23,11 +24,8 @@ public class ClientRequestForm implements Serializable {
 	@Column(name="Description")
 	private String description;
 
-	@Column(name="Duration")
-	private int duration;
-
 	@Column(name="EndDate")
-	private Timestamp endDate;
+	private Date endDate;
 
 	@Column(name="Experience")
 	private String experience;
@@ -39,7 +37,7 @@ public class ClientRequestForm implements Serializable {
 	private String requirements;
 
 	@Column(name="StartDate")
-	private Timestamp startDate;
+	private Date startDate;
 
 	@Column(name="Type")
 	private String type;
@@ -76,19 +74,11 @@ public class ClientRequestForm implements Serializable {
 		this.description = description;
 	}
 
-	public int getDuration() {
-		return this.duration;
-	}
-
-	public void setDuration(int duration) {
-		this.duration = duration;
-	}
-
-	public Timestamp getEndDate() {
+	public Date getEndDate() {
 		return this.endDate;
 	}
 
-	public void setEndDate(Timestamp endDate) {
+	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
 	}
 
@@ -116,11 +106,11 @@ public class ClientRequestForm implements Serializable {
 		this.requirements = requirements;
 	}
 
-	public Timestamp getStartDate() {
+	public Date getStartDate() {
 		return this.startDate;
 	}
 
-	public void setStartDate(Timestamp startDate) {
+	public void setStartDate(Date startDate) {
 		this.startDate = startDate;
 	}
 
@@ -155,5 +145,15 @@ public class ClientRequestForm implements Serializable {
 	public void setProject(Project project) {
 		this.project = project;
 	}
+
+	@Override
+	public String toString() {
+		return "ClientRequestForm [idForm=" + idForm + ", description=" + description + ", endDate=" + endDate
+				+ ", experience=" + experience + ", profileNeeded=" + profileNeeded + ", requirements=" + requirements
+				+ ", startDate=" + startDate + ", type=" + type + ", yearsOfExperience=" + yearsOfExperience
+				+ ", aspNetUser=" + aspNetUser + ", project=" + project + "]";
+	}
+	
+	
 
 }

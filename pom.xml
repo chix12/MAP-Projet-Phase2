@@ -92,6 +92,5 @@
     <module>MapRev-ejb</module>
     <module>MapRev-web</module>
     <module>MapRev-ear</module>
-    <module>MapRev-Client</module>
   </modules>
 </project>

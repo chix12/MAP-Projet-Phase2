@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head></h:head> 
+<body> 
+<h:form>
+				<p:dataTable var="requests" value="#{requestBean.DogetRequests()}"
+					style="margin-bottom:40px">
+
+					<p:column headerText="Description" sortBy="#{requests.description}">
+						<h:outputText value="#{requests.description}" />
+					</p:column>
+					
+					<!-- <p:column headerText="Start Date" sortBy="#{requests.startDate}">
+						<h:outputText value="#{requests.startDate}" />
+					</p:column>
+					 -->
+					 
+					<!--  <p:column headerText="End Date" sortBy="#{requests.endDate}">
+						<h:outputText value="#{requests.endDate}" />
+					</p:column>
+					-->
+					<p:column headerText="Profile Needed" sortBy="#{requests.profileNeeded}">
+						<h:outputText value="#{requests.profileNeeded}" />
+					</p:column>
+					
+					<p:column headerText="Requirements" sortBy="#{requests.requirements}">
+						<h:outputText value="#{requests.requirements}" />
+					</p:column>
+					
+					<p:column headerText="Type"
+						sortBy="#{requests.type}">
+						<h:outputText value="#{requests.type}" />
+					</p:column>
+					
+					<!--  
+					<p:column headerText="Details">
+						<h:commandButton value="Show Detlais"
+							action="#{usersbean.doGetClient()}" />
+					</p:column>
+					-->
+					
+				</p:dataTable>
+			</h:form>
+</body> 
+</html>
