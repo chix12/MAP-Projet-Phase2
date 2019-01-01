@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"> 
+
+<h:head></h:head> 
+<body> 
+<h:form id="form">
+		<h:panelGrid columns="2">
+
+
+
+			<h:outputText value="Start Date"/>
+			<h:inputText  type="Date"   value="#{mandatBean.mandat.startDate}"  id="StartDate" >
+			<f:convertDateTime pattern = "dd-mm-yyyy" /></h:inputText>
+	
+		
+	
+			
+
+			<h:outputText value="End Date" />
+			<h:inputText type="Date" value="#{mandatBean.mandat.endDate}" id="EndDate">
+	<f:convertDateTime pattern = "dd-mm-yyyy" /></h:inputText>
+				<h:outputText value="Frais Par Jour" />
+			<h:inputText type="number" value="#{mandatBean.mandat.frais}" id="frais"/>
+	
+				
+<h:column>
+	<f:facet name="header">
+		
+	</f:facet>
+		   <h:commandButton action="#{mandatBean.LoadPage()}" value="Save" >	 
+		<f:setPropertyActionListener value="#{mandatBean.mandat}" target="#{mandatBean.mandat}">
+		</f:setPropertyActionListener></h:commandButton>
+	</h:column>	
+		   
+		<h:message for="btn"/>
+
+		</h:panelGrid>
+	</h:form>
+</body> 
+</html>

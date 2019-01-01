@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://java.sun.com/jsf/html">
+    
+
+<h:head></h:head> 
+<body>  
+
+<h:form id="form1">
+<p:dataTable value="#{userBean.listeUsers}" var="AspNetUser" border="1" >
+
+    <p:column headerText="Email">
+        <h:outputText value="#{AspNetUser.email}" />
+    </p:column>
+ 
+    <p:column headerText="Phone Number">
+        <h:outputText value="#{AspNetUser.phoneNumber}" />
+    </p:column>
+ 
+   
+
+
+	
+	<h:column>
+	<f:facet name="header">
+		
+	</f:facet>
+	<h:commandButton action="#{userBean.LoadPage()}" value="historique" >	 
+		<f:setPropertyActionListener value="#{AspNetUser}" target="#{mandatBean.user}">
+		</f:setPropertyActionListener></h:commandButton>
+	</h:column>	
+
+</p:dataTable>
+	</h:form>
+
+
+	
+
+
+
+
+
+
+
+
+</body> 
+</html>
